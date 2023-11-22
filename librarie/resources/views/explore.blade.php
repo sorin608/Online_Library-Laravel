@@ -5,10 +5,38 @@
     <div class="carousel-container">
         <button class="carousel-arrow" id="prev">&lt;</button>
         <div class="carousel">
-            <img src="/images/1163390-1.jpg" alt="Book 1">
-            <img src="/images/10895315-1.jpg" alt="Book 2">
-            <img src="/images/28155022-1.jpg" alt="Book 3">
-            <!-- Add more book images as needed -->
+            <div class="book">
+                <img src="/images/1163390-1.jpg" alt="Book 1">
+                <button class="rent-button">Rent</button>
+            </div>   
+            <div class="book">
+                <img src="/images/10895315-1.jpg" alt="Book 2">
+                <button class="rent-button">Rent</button>
+            </div>
+            <div class="book">
+                <img src="/images/28155022-1.jpg" alt="Book 3">
+                <button class="rent-button">Rent</button>
+            </div>
+            <div class="book">
+                <img src="/images/35646765-1.jpg" alt="Book 4">
+                <button class="rent-button">Rent</button>
+            </div>
+            <div class="book">
+                <img src="/images/35646807-1.jpg" alt="Book 5">
+                <button class="rent-button">Rent</button>
+            </div>
+            <div class="book">
+                <img src="/images/35646884-1.jpg" alt="Book 6">
+                <button class="rent-button">Rent</button>
+            </div>
+            <div class="book">
+                <img src="/images/35646898-1.jpg" alt="Book 7">
+                <button class="rent-button">Rent</button>
+            </div>
+            <div class="book">
+                <img src="/images/35646933-1.jpg" alt="Book 8">
+                <button class="rent-button">Rent</button>
+            </div>
         </div>
         <button class="carousel-arrow" id="next">&gt;</button>
     </div>
@@ -34,12 +62,13 @@
     }
 
     .carousel img {
-        width: 100%;
-        height: auto;
+        width: 350px;
+        height: 500px;
         scroll-snap-align: start;
     }
 
     .carousel-arrow {
+        z-index: 200;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -62,6 +91,34 @@
 
     #next {
         right: 1em;
+    }
+
+    .book {
+    position: relative;
+    margin-right: 20px; /* Adjust as needed */
+    transition: opacity 0.3s ease;
+    }
+
+    .book:hover {
+    opacity: 0.7;
+    }
+
+    .rent-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    }
+
+    .book:hover .rent-button {
+    opacity: 1;
     }
 </style>
 

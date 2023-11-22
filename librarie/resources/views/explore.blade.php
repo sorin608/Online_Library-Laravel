@@ -2,33 +2,81 @@
     <h2>Explore Our Collection</h2>
     <p>Discover a wide range of materials to enhance your learning experience.</p>
 
-    <div class="categories">
-        <div class="category">
-            <img src="textbooks.jpg" alt="Textbooks">
-            <h3>Textbooks</h3>
-            <p>Explore our comprehensive collection of textbooks covering various subjects and disciplines.</p>
+    <div class="carousel-container">
+        <button class="carousel-arrow" id="prev">&lt;</button>
+        <div class="carousel">
+            <img src="/images/1163390-1.jpg" alt="Book 1">
+            <img src="/images/10895315-1.jpg" alt="Book 2">
+            <img src="/images/28155022-1.jpg" alt="Book 3">
+            <!-- Add more book images as needed -->
         </div>
-
-        <div class="category">
-            <img src="research-papers.jpg" alt="Research Papers">
-            <h3>Research Papers</h3>
-            <p>Dive into thought-provoking research papers from leading scholars and researchers.</p>
-        </div>
-
-        <div class="category">
-            <img src="ebooks.jpg" alt="E-books">
-            <h3>E-books</h3>
-            <p>Access a digital library of e-books spanning fiction, non-fiction, and academic titles.</p>
-        </div>
-
-        <div class="category">
-            <img src="journals.jpg" alt="Journals">
-            <h3>Journals</h3>
-            <p>Stay up-to-date with the latest advancements in your field through our diverse journal collection.</p>
-        </div>
-        <!-- Add more categories as needed -->
+        <button class="carousel-arrow" id="next">&gt;</button>
     </div>
 
     <p>Start exploring now and unlock a wealth of knowledge!</p>
     <a href="#join" class="cta-button">Join the Library</a>
 </section>
+
+<style>
+    .carousel-container {
+        position: relative;
+        margin: 2em 0;
+    }
+
+    .carousel {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+        overflow-y: hidden;
+    }
+
+    .carousel img {
+        width: 100%;
+        height: auto;
+        scroll-snap-align: start;
+    }
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5em;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 0.5em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .carousel-arrow:hover {
+        background-color: #0056b3;
+    }
+
+    #prev {
+        left: 1em;
+    }
+
+    #next {
+        right: 1em;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.querySelector('.carousel');
+        const nextButton = document.getElementById('next');
+        const prevButton = document.getElementById('prev');
+
+        nextButton.addEventListener('click', function () {
+            carousel.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        prevButton.addEventListener('click', function () {
+            carousel.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+    });
+</script>

@@ -7,7 +7,10 @@
         <div class="carousel">
             <div class="book">
                 <img src="/images/1163390-1.jpg" alt="Book 1">
-                <button class="rent-button">Rent</button>
+                <form method="POST" action="{{ url('/rent-book/1') }}">
+                @csrf
+               <button type="submit" class="rent-button">Rent</button>
+                </form>
             </div>   
             <div class="book">
                 <img src="/images/10895315-1.jpg" alt="Book 2">

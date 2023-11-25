@@ -14,4 +14,14 @@
             </div>
         </div>
     </div>
+    @foreach($user->rentals as $rental)
+    <!-- Display rented book information -->
+    <div class="rented-book">
+        <img src="{{ $rental->book->image }}" alt="{{ $rental->book->title }}">
+        <form method="POST" action="{{ url('/return-book/' . $rental->id) }}">
+            @csrf
+            <button type="submit" class="return-button">Return</button>
+        </form>
+    </div>
+@endforeach
 </x-app-layout>

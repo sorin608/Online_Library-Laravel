@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -14,14 +15,51 @@
             </div>
         </div>
     </div>
-    @foreach($user->rentals as $rental)
-    <!-- Display rented book information -->
-    <div class="rented-book">
-        <img src="{{ $rental->book->image }}" alt="{{ $rental->book->title }}">
-        <form method="POST" action="{{ url('/return-book/' . $rental->id) }}">
-            @csrf
-            <button type="submit" class="return-button">Return</button>
-        </form>
+
+    <div class="rented-books-container">
+        
+            <!-- Display rented book information -->
+            <div class="rented-book">
+                <img src="{{ $rental->book->image }}" alt="{{ $rental->book->title }}" class="book-image">
+                <form method="POST" action="{{ url('/return-book/' . $rental->id) }}">
+                    @csrf
+                    <button type="submit" class="return-button">Return</button>
+                </form>
+            </div>
+        
     </div>
-@endforeach
+
 </x-app-layout>
+
+<style>
+    .rented-books-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .rented-book {
+        text-align: center;
+    }
+
+    .book-image {
+        width: 150px; /* Adjust as needed */
+        height: 200px; /* Adjust as needed */
+        margin-bottom: 10px;
+    }
+
+    .return-button {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .return-button:hover {
+        background-color: #0056b3;
+    }
+</style>

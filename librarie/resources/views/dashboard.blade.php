@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-
+    @if(isset($rental))
     <div class="rented-books-container">
         
             <!-- Display rented book information -->
@@ -28,6 +28,7 @@
             </div>
         
     </div>
+    @endif
 
 </x-app-layout>
 

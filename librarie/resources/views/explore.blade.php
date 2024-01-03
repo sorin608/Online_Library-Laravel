@@ -5,47 +5,22 @@
     <div class="carousel-container">
         <button class="carousel-arrow" id="prev">&lt;</button>
         <div class="carousel">
-            <div class="book">
-                <img src="/images/1163390-1.jpg" alt="Book 1">
-                <form method="POST" action="{{ url('/rent-book/1') }}">
-                @csrf
-               <button type="submit" class="rent-button">Rent</button>
-                </form>
-            </div>   
-            <div class="book">
-                <img src="/images/10895315-1.jpg" alt="Book 2">
-                <form method="POST" action="{{ url('/rent-book/2') }}">
-                @csrf
-               <button type="submit" class="rent-button">Rent</button>
-                </form>
-            </div>
-            <div class="book">
-                <img src="/images/28155022-1.jpg" alt="Book 3">
-                <form method="POST" action="{{ url('/rent-book/3') }}">
-                @csrf
-               <button type="submit" class="rent-button">Rent</button>
-                </form>
-            </div>
-            <div class="book">
-                <img src="/images/35646765-1.jpg" alt="Book 4">
-                <button class="rent-button">Rent</button>
-            </div>
-            <div class="book">
-                <img src="/images/35646807-1.jpg" alt="Book 5">
-                <button class="rent-button">Rent</button>
-            </div>
-            <div class="book">
-                <img src="/images/35646884-1.jpg" alt="Book 6">
-                <button class="rent-button">Rent</button>
-            </div>
-            <div class="book">
-                <img src="/images/35646898-1.jpg" alt="Book 7">
-                <button class="rent-button">Rent</button>
-            </div>
-            <div class="book">
-                <img src="/images/35646933-1.jpg" alt="Book 8">
-                <button class="rent-button">Rent</button>
-            </div>
+        @foreach ($books as $book)
+                <div class="book">
+                    <img src="{{ $book->image }}" alt="{{ $book->title }}">
+                    @if ($book->status === 'available')
+                        <form method="POST" action="{{ url('/rent-book/' . $book->id) }}">
+                            @csrf
+                            <button type="submit" class="rent-button">Rent</button>
+                        </form>
+                    @else
+                        <div class="overlay">
+                            <div class="status-label">Rented</div>
+                        </div>
+                    @endif
+                </div>
+            @endforeach
+        </div>
         </div>
         <button class="carousel-arrow" id="next">&gt;</button>
     </div>
@@ -128,6 +103,30 @@
 
     .book:hover .rent-button {
     opacity: 1;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .overlay .status-label {
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .book:hover .overlay {
+        opacity: 1;
     }
 </style>
 

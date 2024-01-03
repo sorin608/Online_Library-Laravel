@@ -17,7 +17,10 @@ class RentalController extends Controller
         $rental->book_id = $bookId;
         $rental->rental_date = now(); // Use the current date and time
         $rental->save();
-        return view('dashboard', ['rental' => $rental]);
-        //return response()->json(['message' => 'Book rented successfully']);
+        $rentals = Rental::where('user_id', auth()->id())->latest()->get();
+        return view('dashboard', ['rentals' => $rentals]);
     }
+   
+
+   
 }

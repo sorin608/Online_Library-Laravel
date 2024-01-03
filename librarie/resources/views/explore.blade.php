@@ -14,11 +14,17 @@
             </div>   
             <div class="book">
                 <img src="/images/10895315-1.jpg" alt="Book 2">
-                <button class="rent-button">Rent</button>
+                <form method="POST" action="{{ url('/rent-book/2') }}">
+                @csrf
+               <button type="submit" class="rent-button">Rent</button>
+                </form>
             </div>
             <div class="book">
                 <img src="/images/28155022-1.jpg" alt="Book 3">
-                <button class="rent-button">Rent</button>
+                <form method="POST" action="{{ url('/rent-book/3') }}">
+                @csrf
+               <button type="submit" class="rent-button">Rent</button>
+                </form>
             </div>
             <div class="book">
                 <img src="/images/35646765-1.jpg" alt="Book 4">

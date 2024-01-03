@@ -15,9 +15,9 @@
             </div>
         </div>
     </div>
-    @if(isset($rental))
+   
     <div class="rented-books-container">
-        
+    @foreach ($rentals as $rental)
             <!-- Display rented book information -->
             <div class="rented-book">
                 <img src="{{ $rental->book->image }}" alt="{{ $rental->book->title }}" class="book-image">
@@ -26,9 +26,9 @@
                     <button type="submit" class="return-button">Return</button>
                 </form>
             </div>
-        
+    @endforeach
     </div>
-    @endif
+ 
 
 </x-app-layout>
 

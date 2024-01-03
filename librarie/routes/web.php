@@ -29,9 +29,8 @@ Route::get('/explore', function () {
 
 Route::get('/dashboard', function () {
     // Retrieve the latest rental record for the logged-in user (adjust the query as needed)
-    $rental = Rental::where('user_id', auth()->id())->latest()->first();
-
-    return view('dashboard', ['rental' => $rental]);
+    $rentals = Rental::where('user_id', auth()->id())->latest()->get();
+    return view('dashboard', ['rentals' => $rentals]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 

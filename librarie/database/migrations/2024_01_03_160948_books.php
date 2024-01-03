@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('image'); // Assuming you have a column for the image path
             // Add other columns as needed
+            $table->enum('status', ['available', 'rented'])->default('available');
             $table->timestamps();
         });
     }

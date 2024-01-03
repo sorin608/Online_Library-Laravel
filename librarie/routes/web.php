@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Rental;
+use App\Models\Book;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,14 @@ Route::get('/', function () {
 });
 
 Route::get('/explore', function () {
-    return view('explore');
+    $rentals = Rental::where('user_id', auth()->id())->latest()->get();
+        $books = Book::all();
+    $rentedBookIds = Rental::where('user_id', auth()->id())->pluck('book_id')->toArray();
+    return view('explore', [
+        'rentals' => $rentals,
+        'books' => $books,
+        'rentedBookIds' => $rentedBookIds
+    ]);
 });
 
 Route::get('/dashboard', function () {

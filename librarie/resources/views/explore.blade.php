@@ -85,24 +85,29 @@
 
     .book:hover {
     opacity: 0.7;
+    z-index: 100;
     }
 
     .rent-button {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
     padding: 10px;
     background-color: #007BFF;
     color: #fff;
     border: none;
     border-radius: 5px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 300;
     }
 
     .book:hover .rent-button {
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 300;
     }
 
     .overlay {
@@ -110,12 +115,12 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 500px;
         background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0;
+        opacity: 1;
         transition: opacity 0.3s ease;
     }
 
@@ -125,9 +130,7 @@
         font-weight: bold;
     }
 
-    .book:hover .overlay {
-        opacity: 1;
-    }
+   
 </style>
 
 <script>

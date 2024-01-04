@@ -18,14 +18,16 @@
    
     <div class="rented-books-container">
     @foreach ($rentals as $rental)
+        @if ($rental->return_date === NULL)
             <!-- Display rented book information -->
             <div class="rented-book">
                 <img src="{{ $rental->book->image }}" alt="{{ $rental->book->title }}" class="book-image">
-                <form method="POST" action="{{ url('/return-book/' . $rental->id) }}">
+                <form method="POST" action="{{ url('/return-book/' . $rental->book->id) }}">
                     @csrf
                     <button type="submit" class="return-button">Return</button>
                 </form>
             </div>
+        @endif
     @endforeach
     </div>
  

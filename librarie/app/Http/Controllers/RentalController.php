@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Rental;
@@ -9,25 +9,37 @@ use App\Models\Book;
 
 class RentalController extends Controller
 {
+    public $timestamps = false;
     public function rentBook(Request $request, $bookId) {
-        // Check if the book is available for rent
+        
         $book = Book::findOrFail($bookId);
 
         if ($book->status === 'available') {
-            // Record the rental action in the database
+            
             $rental = new Rental();
             $rental->user_id = $request->user()->id;
             $rental->book_id = $bookId;
-            $rental->rental_date = now(); // Use the current date and time
+            $rental->rental_date = now(); 
             $rental->save();
 
-            // Update the book's status to 'rented'
+            
             $book->update(['status' => 'rented']);
 
-            return redirect()->route('dashboard')->with('success', 'Book rented successfully.');
-        } else {
-            return redirect()->route('dashboard')->with('error', 'Book is not available for rent.');
+         }
+         return Redirect::route('dashboard');
+    }
+
+    public function returnBook(Request $request, $bookId){
+        $book = Book::findOrFail($bookId);
+        $rental = Rental::where('book_id', $bookId);
+        if ($book->status === 'rented'){
+
+            $book->update(['status' => 'available']);
+            $rental->update(['return_date' => now()]);
+
+            
         }
+            return Redirect::route('explore');
     }
 }
 

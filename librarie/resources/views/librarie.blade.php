@@ -21,7 +21,11 @@
         }
 
         section {
+            
             padding: 2em;
+            padding-top: 0em;
+            padding-bottom: 1em;
+            
         }
 
         h1, h2 {

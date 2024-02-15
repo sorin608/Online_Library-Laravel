@@ -14,7 +14,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained(); 
             $table->foreignId('book_id')->constrained();
             $table->dateTime('rental_date');
-            $table->dateTime('return_date');
+            $table->dateTime('return_date')->nullable();
         });
     }
 

@@ -12,11 +12,55 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \DB::table('books')->insert([
+            [
+                'title' => 'Ion',
+                'image' => 'images\1163390-1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Gandeste si vei fi bogat',
+                'image' => 'images\10895315-1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Marcus Aurelius',
+                'image' => 'images\28155022-1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Toate fantomele din masinarie',
+                'image' => 'images\35646765-1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Dolores se destrama',
+                'image' => 'images\35646807-1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Andrei Plesu',
+                'image' => 'images\35646884-1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Dezumanizat',
+                'image' => 'images\35646898-1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'Sufletul lumii',
+                'image' => 'images\35646933-1.jpg',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }

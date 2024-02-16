@@ -7,7 +7,7 @@
     "settings": {},
     "forwardPorts": [],
     "remoteUser": "vscode"
-
+    "postCreateCommand": "docker build . -t my-php-project"
 
   }
 }

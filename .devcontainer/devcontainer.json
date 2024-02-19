@@ -1,6 +1,0 @@
-{
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-    "ghcr.io/cirolosapio/devcontainers-features/alpine-pgsql-client:0": {}
-  }
-}

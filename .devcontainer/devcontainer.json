@@ -1,7 +1,6 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-    "ghcr.io/cirolosapio/devcontainers-features/alpine-php-composer:0": {},
     "ghcr.io/cirolosapio/devcontainers-features/alpine-pgsql-client:0": {}
-  }
+}
 }

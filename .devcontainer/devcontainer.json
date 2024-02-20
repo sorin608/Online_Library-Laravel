@@ -16,7 +16,7 @@
 	],
 	"features": {
 		"ghcr.io/devcontainers-contrib/features/composer:1": {},
-		"ghcr.io/devcontainers-contrib/features/npm-package:1": {}
+		"ghcr.io/devcontainers/features/node:1": {}
 	}
 
 	// Use 'postCreateCommand' to run commands after the container is created.

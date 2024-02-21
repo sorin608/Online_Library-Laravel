@@ -78,15 +78,15 @@
 <div class="user-section">
     @auth
         <p>Welcome, {{ auth()->user()->name }}</p>
-        <a href="{{ route('dashboard') }}">Profil</a>
-        <form method="POST" action="{{ route('logout') }}">
+        <a href="/dashboard">Profil</a>
+        <form method="POST" action="/logout">
             @csrf
             <button type="submit">Logout</button>
         </form>
     @else
-        <a href="{{ route('login') }}">Login</a>
+        <a href="/login">Login</a>
         @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
+            <a href="/register">Register</a>
         @endif
     @endauth
 </div>
@@ -117,7 +117,7 @@
         </ul>
 
         <p>Start exploring now and unlock a wealth of knowledge!</p>
-        <a href="{{ route('register') }}" class="cta-button">Join the Library</a>
+        <a href="/register" class="cta-button">Join the Library</a>
     </section>
 
 

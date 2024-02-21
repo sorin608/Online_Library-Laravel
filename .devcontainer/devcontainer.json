@@ -20,7 +20,7 @@
 	},
 
 	
-	"postStartCommand": "bin/bash /app/startup.sh"
+	"postStartCommand": "bash /app/startup.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},

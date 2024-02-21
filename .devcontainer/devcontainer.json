@@ -20,7 +20,7 @@
 	},
 
 	
-	"postStartCommand": "bin/bash /workspaces/Online_Library-Laravel/startup.sh"
+	"postStartCommand": "bin/bash /app/startup.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},

@@ -18,6 +18,6 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # running necessary prep commands:
 
-RUN cd ./librarie && composer create-project && php artisan migrate && php artisan db:seed && npm install vite --save-dev && npm run build
+#RUN cd ./librarie && composer create-project && php artisan migrate && php artisan db:seed && npm install vite --save-dev && npm run build
 
 

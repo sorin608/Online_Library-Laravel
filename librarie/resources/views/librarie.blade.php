@@ -51,8 +51,16 @@
             transition: background-color 0.3s ease;
         }
 
+        .cta-button span {
+            display: none;
+        }
+
         .cta-button:hover {
             background-color: #0056b3;
+        }
+
+        .cta-button:hover span {
+            display: inline;
         }
 
         .user-section {
@@ -101,7 +109,7 @@
        
 
         <p>Ready to dive in?</p>
-        <a href="/explore" class="cta-button">Explore the Library</a>
+        <a href="/explore" class="cta-button">Explore the Library<span> 8======D ~~</span></a>
     </section>
 
     <section id="explore">
